@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collaborative Canvas</title>
+</head>
+
+<body>
+  <div id="app">
+    <div id="room-select" style="padding: 10px; background: #f9f9f9; border-bottom: 1px solid #ddd;">
+      <label>Room: <input type="text" id="roomInput" value="default" placeholder="Enter room name" /></label>
+      <button id="joinRoomBtn">Join Room</button>
+      <span id="currentRoom" style="margin-left: 10px; font-weight: bold;">Current: default</span>
+    </div>
+    <div id="toolbar">
+      <input type="color" id="colorPicker" value="#000000" />
+      <button id="eraserBtn">Eraser</button>
+      <button id="rectBtn" title="Rectangle Tool">□</button>
+      <button id="circleBtn" title="Circle Tool">○</button>
+      <button id="lineBtn" title="Line Tool">―</button>
+      <input type="range" id="lineWidth" min="1" max="20" value="3" />
+      <button id="undoBtn">Undo</button>
+      <button id="redoBtn">Redo</button>
+      <button id="clearBtn">Clear</button>
+      <div id="status">Connecting...</div>
+      <div id="metrics" style="margin-left: 20px; font-size: 12px; color: #666;">
+        <span id="fps">FPS: --</span> | <span id="ping">Ping: --ms</span>
+      </div>
+    </div>
+    <div id="main-content" style="display: flex; flex: 1; overflow: hidden; position: relative;">
+      <div id="canvas-container" style="flex: 1; position: relative;">
+        <canvas id="drawing-canvas"></canvas>
+        <canvas id="cursor-canvas" style="pointer-events: none; position: absolute; top: 0; left: 0;"></canvas>
+      </div>
+      <div id="user-list-panel"
+        style="width: 200px; background: #f5f5f5; border-left: 1px solid #ccc; padding: 10px; overflow-y: auto;">
+        <h3>Users</h3>
+        <ul id="user-list" style="list-style: none; padding: 0;"></ul>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
