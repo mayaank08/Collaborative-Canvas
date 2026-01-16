@@ -25,7 +25,7 @@
 3. Import your GitHub repository
 4. Configure:
    - **Framework Preset**: Vite
-   - **Root Directory**: Leave as `.` (vercel.json handles it)
+   - **Root Directory**: `client` ⚠️ **IMPORTANT**
    - **Environment Variables**:
      - **Name**: `VITE_SERVER_URL`
      - **Value**: `https://YOUR-RENDER-URL.onrender.com` (from step 1)
