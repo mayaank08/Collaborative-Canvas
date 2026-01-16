@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { CanvasManager } from './CanvasManager';
 import { SocketService } from './SocketService';
 import './style.css';
@@ -36,9 +37,6 @@ const pingEl = document.getElementById('ping')!;
 const roomInput = document.getElementById('roomInput') as HTMLInputElement;
 const joinRoomBtn = document.getElementById('joinRoomBtn') as HTMLButtonElement;
 const currentRoomEl = document.getElementById('currentRoom')!;
-const rectBtn = document.getElementById('rectBtn') as HTMLButtonElement;
-const circleBtn = document.getElementById('circleBtn') as HTMLButtonElement;
-const lineBtn = document.getElementById('lineBtn') as HTMLButtonElement;
 
 // State
 const remoteStrokes: Record<string, { id?: string; points: { x: number, y: number }[], color: string, width: number }> = {};
@@ -50,13 +48,6 @@ let fps = 0;
 let frameCount = 0;
 let lastFpsUpdate = performance.now();
 let ping = 0;
-
-// Tool state
-type ToolMode = 'brush' | 'rectangle' | 'circle' | 'line';
-let currentTool: ToolMode = 'brush';
-let shapeStart: { x: number, y: number } | null = null;
-let tempCanvas: HTMLCanvasElement | null = null;
-let tempCtx: CanvasRenderingContext2D | null = null;
 
 // --- Application Logic ---
 socketService.connect();
